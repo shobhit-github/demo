@@ -1,0 +1,36 @@
+{
+
+    "HOME_HEADING": "Hello there",
+    "HOME_HEADING_TEXT": "Wont you please",
+    "SIGN_IN_TXT": "Sign in",
+    "OR_TXT": "or",
+    "REGISTER": "Register",
+    "LOGOUT_TXT": "Logout",
+    "LOGIN_HEAD1": "Not a member? Please",
+    "REGISTER_HEAD2": "Already a member? Please",
+
+    "FULLNAME": "Full Name",
+    "EMAIL": "Email Address",
+    "PASSWORD": "Password",
+    "SELECT_ROLE": "Select Role",
+    "USER_PERMISSION": "User Permission",
+    "PERMISSION": "Permission",
+
+    "ADMINISTRATOR": "Administrator",
+    "DISTRIBUTOR": "Distributor",
+    "RETAILER": "Retailer",
+    "CUSTOMER": "Customer",
+
+    "PROFILE_HEAD": "Your profile as",
+    "CLEAN": "Clean",
+    "ACCESS_GRANTED": "ACCESS GRANTED",
+    "ACCESS_DENIED": "ACCESS DENIED",
+
+    "FULLNAME_REQ_ERR": "Please enter your name",
+    "EMAIL_REQ_ERR": "Please enter email address",
+    "EMAIL_VALID_ERR": "Please enter valid email address",
+    "PASSWORD_REQ_ERR": "Please enter password",
+    "SELECT_ROLE_REQ_ERR": "Please select user role",
+    "USER_PERMISSION_REQ_ERR": "Please select at least one permission"
+
+}

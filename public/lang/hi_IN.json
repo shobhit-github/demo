@@ -1,0 +1,37 @@
+{
+
+    "HOME_HEADING": "नमस्ते",
+    "HOME_HEADING_TEXT": "क्या आप कृपया नहीं करेंगे",
+    "SIGN_IN_TXT": "साइन इन",
+    "OR_TXT": "या",
+    "REGISTER": "रजिस्टर",
+    "LOGOUT_TXT": "लोग आउट",
+    "LOGIN_HEAD1": "सदस्य नहीं है? कृप्या",
+    "REGISTER_HEAD2": "पहले से सदस्य हैं? कृप्या",
+
+    "FULLNAME": "पूरा नाम",
+    "EMAIL": "ईमेल पता",
+    "PASSWORD": "पारण शब्द",
+    "SELECT_ROLE": "रोल का चयन करें",
+    "USER_PERMISSION": "उपयोगकर्ता अनुमति",
+    "PERMISSION": "अनुमति",
+
+    "ADMINISTRATOR": "प्रशासक",
+    "DISTRIBUTOR": "वितरक",
+    "RETAILER": "फुटकर विक्रेता",
+    "CUSTOMER": "ग्राहक",
+
+    "PROFILE_HEAD": "आपकी प्रोफाइल के रूप में",
+    "CLEAN": "स्वच्छ",
+    "ACCESS_GRANTED": "प्रवेश करने की अनुमति है",
+    "ACCESS_DENIED": "पहुंच अस्वीकृत",
+
+    "FULLNAME_REQ_ERR": "अपना नाम दर्ज करें",
+    "EMAIL_REQ_ERR": "कृपया ईमेल पता दर्ज करें",
+    "EMAIL_VALID_ERR": "कृपया मान्य ईमेल पता दर्ज करें",
+    "PASSWORD_REQ_ERR": "कृप्या पास्वर्ड भरो",
+    "SELECT_ROLE_REQ_ERR": "कृपया उपयोगकर्ता भूमिका चुनें",
+    "USER_PERMISSION_REQ_ERR": "कृपया कम से कम एक अनुमति का चयन करें"
+
+
+}

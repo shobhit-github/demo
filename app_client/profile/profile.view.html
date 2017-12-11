@@ -1,0 +1,39 @@
+<navigation></navigation>
+
+<div class="container">
+  <div class="row">
+
+      <div ng-class="{'alert-danger':(vm.access == 'N'), 'alert-success':(vm.access == 'Y')}" class="alert" ng-show="vm.access">
+          <strong ng-show="vm.access == 'Y'">{{ 'ACCESS_GRANTED' | translate }}</strong>
+          <strong ng-show="vm.access == 'N'">{{ 'ACCESS_DENIED' | translate }} </strong>
+      </div>
+
+     <div class="col-md-6">
+
+      <h1 class="form-signin-heading">{{ 'PROFILE_HEAD' | translate }} {{vm.roleList[vm.user.role]}}</h1>
+
+      <form  class="form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">{{ 'FULLNAME' | translate }}</label>
+          <p class="form-control-static">{{ vm.user.name }}</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">{{ 'EMAIL' | translate }}</label>
+          <p class="form-control-static">{{ vm.user.email }}</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">{{ 'PERMISSION' | translate }}</label>
+            <br>
+            <p>
+                <li class="text-center" style="width: 65%" ng-repeat="per in vm.permissionList" class="form-control-static">
+                    <a href="javascript:void(0)" ng-click="vm.checkPermission($index)">{{ per }}</a>
+                </li>
+            </p>
+            <p><a href="javascript:void(0)" ng-click="vm.access = undefined">{{ 'CLEAN' | translate }}</a></p>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>

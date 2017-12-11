@@ -1,0 +1,46 @@
+<navigation></navigation>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+      <h1>{{'REGISTER' | translate}}</h1>
+      <p class="lead">{{'REGISTER_HEAD2' | translate}} <a href="login">{{'SIGN_IN_TXT' | translate}}</a>.</p>
+      <form ng-submit="vm.onSubmit()" novalidate>
+        <div class="form-group" ng-class="{'has-error': vm.validationError['name']}">
+          <label for="name">{{'FULLNAME' | translate}}</label>
+          <input type="text" class="form-control" id="name" placeholder="{{'FULLNAME' | translate}}" ng-model="vm.credentials.name">
+          <div ng-style="{'color': '#A94442'}" ng-show="vm.validationError['name']">{{'FULLNAME_REQ_ERR' | translate}}</div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': vm.validationError['email']}">
+          <label for="email">{{'EMAIL' | translate}}</label>
+          <input type="text" class="form-control" id="email" placeholder="{{'EMAIL' | translate}}" ng-model="vm.credentials.email">
+          <div ng-style="{'color': '#A94442'}" ng-show="vm.validationError['email']['type'] === 'required'">{{'EMAIL_REQ_ERR' | translate}}</div>
+          <div ng-style="{'color': '#A94442'}" ng-show="vm.validationError['email']['type'] === 'email'">{{'EMAIL_VALID_ERR' | translate}}</div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': vm.validationError['password']}">
+          <label for="password">{{'PASSWORD' | translate}}</label>
+          <input type="password" class="form-control" id="password" placeholder="{{'PASSWORD' | translate}}" ng-model="vm.credentials.password">
+          <div ng-style="{'color': '#A94442'}" ng-show="vm.validationError['password']">{{'PASSWORD_REQ_ERR' | translate}}</div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': vm.validationError['role']}">
+          <label for="sel1">{{'SELECT_ROLE' | translate}}</label>
+          <select id="sel1" ng-model="vm.credentials.role" class="form-control" >
+            <option ng-repeat="x in vm.roleList" ng-value="$index">{{x}}</option>
+          </select>
+          <div ng-style="{'color': '#A94442'}" ng-show="vm.validationError['role']">{{'SELECT_ROLE_REQ_ERR' | translate}}</div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': vm.validationError['permissions']}">
+          <label for="sel1">{{'USER_PERMISSION' | translate}}</label>
+          <div ng-repeat="per in vm.permissionList" class="checkbox">
+            <label><input type="checkbox" ng-model="vm.credentials.permissions[$index]" ng-change="vm.permissionChange($index)" ng-value="$index">{{per}}</label>
+          </div>
+          <div ng-style="{'color': '#A94442'}" ng-show="vm.validationError['permissions']">{{'USER_PERMISSION_REQ_ERR' | translate}}</div>
+        </div>
+
+        <button type="submit" class="btn btn-default">{{'REGISTER' | translate}}!</button>
+      </form>
+    </div>
+  </div>
+
+</div>

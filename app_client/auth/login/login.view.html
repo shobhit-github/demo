@@ -1,0 +1,27 @@
+<navigation></navigation>
+
+<div class="container">
+
+  <div class="row">
+    
+    <div class="col-md-6">
+
+      <h1 class="form-signin-heading">{{'SIGN_IN_TXT' | translate}}</h1>
+      <p class="lead">{{'LOGIN_HEAD1' | translate}} <a href="register">{{'REGISTER' | translate}}</a>.</p>
+  
+      <form ng-submit="vm.onSubmit()">
+        <div class="form-group">
+          <label for="email">{{'EMAIL' | translate}}</label>
+          <input type="email" class="form-control" id="email" placeholder="{{'EMAIL' | translate}}" ng-model="vm.credentials.email">
+        </div>
+        <div class="form-group">
+          <label for="password">{{'PASSWORD' | translate}}</label>
+          <input type="password" class="form-control" id="password" placeholder="{{'PASSWORD' | translate}}" ng-model="vm.credentials.password">
+        </div>
+        <button type="submit" class="btn btn-default">{{'SIGN_IN_TXT' | translate}}!</button>
+      </form>
+
+    </div>
+  </div>
+
+</div>

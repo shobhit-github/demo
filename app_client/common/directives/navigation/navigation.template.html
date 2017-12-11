@@ -1,0 +1,20 @@
+<div class="navbar navbar-default">
+    <div class="container">
+        <div id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li><a ng-show="navvm.isLoggedIn" href="javascript:void(0)">{{ navvm.currentUser.name }}</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="navvm.isLoggedIn"><a href="login">{{'SIGN_IN_TXT' | translate }}</a></li>
+                <li ng-show="navvm.isLoggedIn"><a href="/">{{'LOGOUT_TXT' | translate }}</a></li>
+                <li class="form-group">
+
+                    <select class="form-control" ng-model="navvm.currentLocaleDisplayName" style="margin-top: 8px;"
+                            ng-options="localesDisplayName for localesDisplayName in navvm.localesDisplayNames"
+                            ng-change="navvm.changeLanguage(navvm.currentLocaleDisplayName)">
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
