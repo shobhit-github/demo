@@ -4,24 +4,36 @@
         .module('meanApp')
         .controller('profileCtrl', profileCtrl);
 
-    profileCtrl.$inject = ['$location', 'meanData'];
+    profileCtrl.$inject = ['$location', 'meanData', '$rootScope', '$filter'];
 
-    function profileCtrl($location, meanData) {
+    function profileCtrl($location, meanData, $rootScope, $filter) {
         var vm = this;
 
         vm.user = {};
-        vm.roleList = ['Administrator', 'Distributor', 'Retailer', 'Customer'];
-        vm.permissionList = ['Permission 1', 'Permission 2', 'Permission 3', 'Permission 4'];
+        vm.permissionList = []; vm.roleList = [];
+        vm.roleLocalList = ['ADMINISTRATOR', 'DISTRIBUTOR', 'RETAILER', 'CUSTOMER'];
 
 
         vm.checkPermission = function (value) {
             vm.access = ( this.user.permissions.indexOf(value) > -1 ) ? 'Y' : 'N';
         };
 
-        vm.$watch(
-            function() { return $filter('translate')('HELLO_WORLD'); },
-            function(newval) { vm.pageTitle = newval; }
+        vm.roleLocalList.forEach(
+            function (value, index) {
+                vm.permissionList.push($filter('translate')('PERMISSION') + (index+1));
+                vm.roleList.push($filter('translate')(value));
+            }
         );
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            vm.permissionList = []; vm.roleList = [];
+            vm.roleLocalList.forEach(
+                function (value, index) {
+                    vm.permissionList.push($filter('translate')('PERMISSION') + (index+1));
+                    vm.roleList.push($filter('translate')(value));
+                }
+            )
+        });
 
         meanData.getProfile()
             .success(function (data) {

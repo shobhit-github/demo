@@ -4,15 +4,33 @@
         .module('meanApp')
         .controller('registerCtrl', registerCtrl);
 
-    registerCtrl.$inject = ['$location', 'authentication'];
+    registerCtrl.$inject = ['$location', 'authentication', '$filter', '$rootScope'];
 
-    function registerCtrl($location, authentication) {
+    function registerCtrl($location, authentication, $filter, $rootScope) {
         var vm = this;
 
-        vm.validationError = [];
-        vm.roleList = ['Administrator', 'Distributor', 'Retailer', 'Customer'];
-        vm.permissionList = ['Permission 1', 'Permission 2', 'Permission 3', 'Permission 4'];
+        vm.roleList = []; vm.permissionList = []; vm.validationError = [];
+        vm.roleLocalList = ['ADMINISTRATOR', 'DISTRIBUTOR', 'RETAILER', 'CUSTOMER'];
         vm.credentials = { name: null, email: null, password: null, role: null, permissions: [] };
+
+
+
+        vm.roleLocalList.forEach(
+            function (value, index) {
+                vm.permissionList.push($filter('translate')('PERMISSION') + (index+1));
+                vm.roleList.push($filter('translate')(value));
+            }
+        );
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            vm.permissionList = []; vm.roleList = [];
+            vm.roleLocalList.forEach(
+                function (value, index) {
+                    vm.permissionList.push($filter('translate')('PERMISSION') + (index+1));
+                    vm.roleList.push($filter('translate')(value));
+                }
+            )
+        });
 
 
         var validateEmail = function (mail)
@@ -52,7 +70,9 @@
 
             return (vm.validationError['name'] || vm.validationError['email'] || vm.validationError['password'] || vm.validationError['permissions']);
         };
-        
+
+
+
         vm.onSubmit = function () {
 
             if ( vm.validate() ) {
